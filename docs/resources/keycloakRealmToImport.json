@@ -1,6 +1,6 @@
 {
   "id": "pyxis",
-  "realm": "DEV_pyxis_uc",
+  "realm": "DEV_PYXIS",
   "notBefore": 0,
   "revokeRefreshToken": false,
   "refreshTokenMaxReuse": 1,
