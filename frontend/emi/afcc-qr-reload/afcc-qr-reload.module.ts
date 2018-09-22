@@ -8,6 +8,9 @@ import { AfccQrReloadService } from './afcc-qr-reload.service';
 import { AfccQrReloadComponent } from './afcc-qr-reload.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { AngularBleModule } from '@nebulae/angular-ble';
+import { ManualDialogValueComponent } from './manual-value-dialog/manual-dialog-value.component';
+import { ConfirmReloadDialogComponent } from './confirm-reload-dialog/confirm-reload-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -20,6 +23,7 @@ const routes: Routes = [
   imports: [
     SharedModule,
     RouterModule.forChild(routes),
+    HttpClientModule,
     AngularBleModule.forRoot({
       enableTracing: false
     }),
@@ -27,7 +31,13 @@ const routes: Routes = [
     QRCodeModule
   ],
   declarations: [
-    AfccQrReloadComponent    
+    AfccQrReloadComponent,
+    ManualDialogValueComponent,
+    ConfirmReloadDialogComponent
+  ],
+  entryComponents: [
+    ManualDialogValueComponent,
+    ConfirmReloadDialogComponent
   ],
   providers: [ AfccQrReloadService, DatePipe]
 })

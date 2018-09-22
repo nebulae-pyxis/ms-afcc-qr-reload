@@ -9,7 +9,7 @@ query getSamData($cardId: String, $value: Int){
     id
     timestamp
     value
-    tagId
+    tagid
     sign
   }
 }

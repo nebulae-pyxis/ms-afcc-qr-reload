@@ -47,11 +47,11 @@
         <div fxLayout="row" fxLayout.gt-sm="row">
           <button class="pos-button" (click)="afccReload(40000)" mat-raised-button color="primary">40.000$</button>
           <button class="pos-button" (click)="afccReload(50000)" mat-raised-button color="primary">50.000$</button>
-          <button class="pos-button" mat-raised-button color="primary">Otro Valor</button>
+          <button class="pos-button" (click)="reloadAnotherValue()" mat-raised-button color="primary">Otro Valor</button>
         </div>
       </div>
       <div *ngIf="reloadingCard" style="margin:20px; justify-content: center" fxLayout="column" fxLayout.gt-sm="column">
-        <qrcode *ngIf="qrReloadObj" [qrdata]="qrReloadObj" [size]="256" [level]="'M'"></qrcode>
+        <qrcode *ngIf="qrReloadObj" [qrdata]="qrReloadObj" [size]="256" [level]="'H'"></qrcode>
         <button style="margin-top: 30px" (click)="finishReloadAction()" mat-raised-button color="accent">Finalizar</button>
       </div>
       

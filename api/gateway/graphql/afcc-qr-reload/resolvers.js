@@ -20,21 +20,31 @@ function getResponseFromBackEnd$(response) {
         });
 }
 
+
 module.exports = {
-    
 
     //// QUERY ///////
 
     Query: {
         getSamData(root, args, context) {
             console.log('llegan args: ', args)
+            /*
+            return superagent
+                            .post('http://127.0.0.1:8000/recharge/' + data.cardId)
+                            .send({ "id": data.cardId, "timestamp": new Date().getMilliseconds, "tagid": 98768790, "value": data.value })
+                            .set('accept', 'json')
+                            */
+
             //*
+            const timestamp = parseInt(new Date().getTime()/1000)
             return Rx.Observable.of(args)
                 .mergeMap(data => {
                     return Rx.Observable.defer(() => {
+                        const cardId = data.cardId;
                         return superagent
-                            .post('http://127.0.0.1:8000/recharge/' + data.cardId)
-                            .send({ "id": data.cardId, "timestamp": new Date().getSeconds(), "tagid": 98768790, "value": data.value })
+                            .post('http://127.0.0.1:8000/recharge/' + cardId)
+                            .send({ "id":  (Math.floor(Math.random() * (9000 - 0)) + 0), "timestamp": timestamp, 
+                            "tagid": parseInt(cardId), "value": args.value })
                             .set('accept', 'json')
                     })
                 })

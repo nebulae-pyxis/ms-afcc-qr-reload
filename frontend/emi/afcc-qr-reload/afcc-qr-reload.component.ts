@@ -3,7 +3,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { fuseAnimations } from '../../../core/animations';
 import { Subscription } from 'rxjs/Subscription';
 import * as Rx from 'rxjs/Rx';
-import { map } from 'rxjs/operators';
+import { map, filter, mergeMap, mergeMapTo } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
+import { ManualDialogValueComponent } from './manual-value-dialog/manual-dialog-value.component';
+import { ConfirmReloadDialogComponent } from './confirm-reload-dialog/confirm-reload-dialog.component';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -18,7 +21,8 @@ export class AfccQrReloadComponent implements OnInit, OnDestroy {
   cardId: String;
   qrReloadObj: any;
 
-  constructor(private afccQrReloadervice: AfccQrReloadService  ) {    
+  constructor(private afccQrReloadervice: AfccQrReloadService,
+    private dialog: MatDialog) {    
 
   }
     
@@ -31,22 +35,30 @@ export class AfccQrReloadComponent implements OnInit, OnDestroy {
   }
 
   afccReload(value){
-    this.afccQrReloadervice.getSamData$(this.cardId, value).pipe(
-      map(resp => {
-        console.log('llega timestamp: ', resp.timestamp)
-        return {
-          '1': this.intToHex(resp.id),
-          '2': this.intToHex(resp.timestamp),
-          '3': this.intToHex(resp.value),
-          '4': this.intToHex(resp.tagId),
-          '5': resp.sign
-        }
-      })
-    ).subscribe(result => {
+    this.dialog
+    .open(ConfirmReloadDialogComponent)
+    .afterClosed()
+    .pipe(
+      filter(confirmed => confirmed),
+      mergeMapTo(this.afccQrReloadervice.getSamData$(this.cardId, value).pipe(
+        map(resp => {
+          return {
+            '1': this.intToHex((resp as any).id),
+            '2': this.intToHex((resp as any).timestamp),
+            '3': this.intToHex((resp as any).value),
+            '4': this.intToHex((resp as any).tagid),
+            '5': (resp as any).sign
+          };
+        }),
+        map(a =>  window.btoa(unescape(encodeURIComponent(JSON.stringify(a)))))
+      ))
+    )
+    .subscribe(result => {
+      this.reloadingCard = true;
       this.qrReloadObj = JSON.stringify(result);
       console.log("llega resultado de api: ", result)
     })
-    this.reloadingCard = true;
+    
   }
 
   finishReloadAction() {
@@ -62,6 +74,16 @@ export class AfccQrReloadComponent implements OnInit, OnDestroy {
     const view = new DataView(arr);
     view.setUint32(0, num, false); // byteOffset = 0; litteEndian = false
     return arr;
+}
+
+reloadAnotherValue(){
+  this.dialog
+      .open(ManualDialogValueComponent);
+}
+
+confirmReloadCard() {
+  this.dialog
+    .open(ConfirmReloadDialogComponent);
 }
 
 }

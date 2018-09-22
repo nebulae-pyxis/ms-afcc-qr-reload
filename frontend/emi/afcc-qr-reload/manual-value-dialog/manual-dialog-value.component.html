@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Venta carga tarjeta</h1>
+<mat-dialog-content>
+  <p>Por favor ingrese el valor a recargar</p>
+  <mat-form-field>
+    <input matInput  placeholder="Valor" [ngModel]="amount">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="updateCronjob(true)">Ok</button>
+  <button mat-raised-button mat-dialog-close color="warn" (click)="updateCronjob(false)">Cancelar</button>
+</mat-dialog-actions>

@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Venta carga tarjeta</h1>
+<mat-dialog-content>
+  <p>Esta seguro que desea cargar la tarjeta?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="confirmReload(true)">Ok</button>
+  <button mat-raised-button mat-dialog-close color="warn" (click)="confirmReload(false)">Cancelar</button>
+</mat-dialog-actions>

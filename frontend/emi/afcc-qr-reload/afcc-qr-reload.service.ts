@@ -7,14 +7,17 @@ import {
   getSamData
 } from './gql/afccQrReload';
 import * as aes from 'aes-js';
+import { HttpClient } from '@angular/common/http';
+import { map, tap } from 'rxjs/operators';
 
 
 @Injectable()
 export class AfccQrReloadService {
 
-  
+
   constructor(private gateway: GatewayService,
-    private cypherAesService:CypherAesService) {
+    private cypherAesService:CypherAesService,
+    private http: HttpClient) {
 
   }
 
@@ -31,6 +34,7 @@ export class AfccQrReloadService {
       .valueChanges.map(
         resp => resp.data.getSamData
       );
+
   }
 
   bytesToHex(bytes) {
