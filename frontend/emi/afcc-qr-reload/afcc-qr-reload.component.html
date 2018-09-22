@@ -1,0 +1,65 @@
+<div id="devices" class="page-layout carded fullwidth" fusePerfectScrollbar>
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg mat-accent-bg"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <!-- HEADER -->
+    <div class="header white-fg" style="padding-top: 10px; max-height: 160px" fxLayout="column" fxLayoutAlign="center center"
+      fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between center">
+
+      <!-- APP TITLE -->
+      <div class="logo my-12 m-sm-0" fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon class="logo-icon mr-16" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">nfc</mat-icon>
+        <span class="logo-text h1" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">HackAmericas 2018</span>
+      </div>
+
+      <!-- / BUTTON STATUS -->
+
+
+    </div>
+    <!-- / HEADER -->
+
+     <!-- CONTENT CARD -->
+     <div style="margin-top: 30px" class="content-card mat-white-bg">
+      <div style="margin: 20px" fxLayout="row" fxLayout.gt-sm="row">
+          <mat-icon style="width: 60px; font-size: 50px">credit_card</mat-icon>
+          <div fxLayout="column" fxLayout.gt-sm="column">
+            <mat-form-field>
+              <input matInput placeholder="Numero tarjeta"  [disabled]="reloadingCard" [(ngModel)]="cardId">
+            </mat-form-field>
+          </div>
+      </div>
+      <div *ngIf="!reloadingCard" fxLayout="column" fxLayout.gt-sm="column">
+        <div fxLayout="row" fxLayout.gt-sm="row">
+          <button class="pos-button" (click)="afccReload(2000)" mat-raised-button color="primary">2.000$</button>
+          <button class="pos-button" (click)="afccReload(5000)" mat-raised-button color="primary">5.000$</button>
+          <button class="pos-button" (click)="afccReload(10000)" mat-raised-button color="primary">10.000$</button>
+        </div>
+        <div fxLayout="row" fxLayout.gt-sm="row">
+          <button class="pos-button" (click)="afccReload(15000)" mat-raised-button color="primary">15.000$</button>
+          <button class="pos-button" (click)="afccReload(20000)" mat-raised-button color="primary">20.000$</button>
+          <button class="pos-button" (click)="afccReload(30000)" mat-raised-button color="primary">30.000$</button>
+        </div>
+        <div fxLayout="row" fxLayout.gt-sm="row">
+          <button class="pos-button" (click)="afccReload(40000)" mat-raised-button color="primary">40.000$</button>
+          <button class="pos-button" (click)="afccReload(50000)" mat-raised-button color="primary">50.000$</button>
+          <button class="pos-button" mat-raised-button color="primary">Otro Valor</button>
+        </div>
+      </div>
+      <div *ngIf="reloadingCard" style="margin:20px; justify-content: center" fxLayout="column" fxLayout.gt-sm="column">
+        <qrcode *ngIf="qrReloadObj" [qrdata]="qrReloadObj" [size]="256" [level]="'M'"></qrcode>
+        <button style="margin-top: 30px" (click)="finishReloadAction()" mat-raised-button color="accent">Finalizar</button>
+      </div>
+      
+
+    </div>
+    <!-- / CONTENT CARD -->
+    
+    <!-- / CONTENT CARD -->
+  </div>
+  <!-- / CENTER -->
+</div>

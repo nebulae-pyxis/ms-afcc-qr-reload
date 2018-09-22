@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: afccqr-mongo
+spec:
+  ports:
+  - port: 27017
+    name: afccqr-mongo
+  selector:
+    app: afccqr-mongo
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: afccqr-mongo-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 0.5Gi
+---
+apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: afccqr-mongo
+spec:
+  selector:
+    matchLabels:
+      app: afccqr-mongo
+  strategy:
+    type: Recreate      
+  template:
+    metadata:
+      labels:
+        app: afccqr-mongo
+    spec:
+      containers:
+      - image: mongo:3.7-jessie
+        name: afccqr-mongo        
+        ports:
+        - containerPort: 27017
+          name: afccqr-mongo
+        volumeMounts:
+        - name: afccqr-mongo-persistent-storage
+          mountPath: /data/db
+      volumes:
+      - name: afccqr-mongo-persistent-storage
+        persistentVolumeClaim:
+          claimName: afccqr-mongo-pv-claim

@@ -1,0 +1,41 @@
+[
+    {
+        "name": "afcc-qr-reload",
+        "src": "frontend/emi/afcc-qr-reload",
+        "groups": [
+            {
+              "id": "HACKATON",
+              "icon": "location_searching",
+              "translate": {
+                "en": "Hackaton",
+                "es": "Hackaton"
+              },
+              "priority": 1000
+            }
+          ],
+        "contents": [
+            {
+                "groupId": "HACKATON",
+                "id": "afcc-qr-reload",
+                "icon": "dashboard",
+                "translate": {
+                    "en": "afcc-qr-reload_en",
+                    "es": "afcc-qr-reload_es"
+                },
+                "navURL": "/afcc-qr-reload",
+                "path": "afcc-qr-reload",
+                "loadChildren": "./main/content/afcc-qr-reload/afcc-qr-reload.module#AfccQrReloadModule",
+                "priority": 1000,
+                "roles" : ["pos"],
+                "default" : false
+            }            
+        ],
+        "preBuildCommands": [
+            "npm install @types/web-bluetooth",
+            "npm install aes-js",
+            "npm install @nebulae/angular-ble@1.0.2"
+        ],
+        "environmentVars": {
+        }
+    }
+]

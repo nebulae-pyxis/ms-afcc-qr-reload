@@ -1,0 +1,8 @@
+[
+    {
+        "name": "afcc-qr-reload",
+        "type": "graphql",        
+        "src": "api/gateway/graphql/afcc-qr-reload",
+        "preBuildCommands": []
+    }
+]
