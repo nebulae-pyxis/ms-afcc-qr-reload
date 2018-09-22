@@ -12,6 +12,7 @@ import * as aes from 'aes-js';
 @Injectable()
 export class AfccQrReloadService {
 
+  
   constructor(private gateway: GatewayService,
     private cypherAesService:CypherAesService) {
 

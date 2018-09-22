@@ -31,6 +31,7 @@
             }            
         ],
         "preBuildCommands": [
+            "npm install angularx-qrcode",
             "npm install @types/web-bluetooth",
             "npm install aes-js",
             "npm install @nebulae/angular-ble@1.0.2"
