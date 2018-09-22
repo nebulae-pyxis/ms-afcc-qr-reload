@@ -1,5 +1,5 @@
 {
-  "name": "@nebulae-tpm/mbe-afcc-qr-reload",
+  "name": "@nebulae-pyxis/mbe-afcc-qr-reload",
   "version": "0.0.1",
   "description": "BackEnd for the afcc-qr-reload Microservice",
   "main": "server.js",

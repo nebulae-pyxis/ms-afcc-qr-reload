@@ -203,26 +203,26 @@ workflows:
   build-and-deploy:
     jobs:
       - prepare:
-          context: tpm_uc
+          context: pyxis_uc
       - build-frontend:
-          context: tpm_uc
+          context: pyxis_uc
           requires:
             - prepare
       - build-api:
-          context: tpm_uc
+          context: pyxis_uc
           requires:
             - prepare
       - build-mbinit:
-          context: tpm_uc
+          context: pyxis_uc
           requires:
             - prepare
       - build-backend:
-          context: tpm_uc
+          context: pyxis_uc
           requires:
             - prepare
             - build-mbinit      
       - deploy-prod:
-          context: tpm_uc
+          context: pyxis_uc
           requires:
             - build-frontend
             - build-api

@@ -18,7 +18,7 @@ gitChanged(){
 #   github user email
 #   github user name
 #   github user token
-#   github repo path eg: nebulae-tpm/emi
+#   github repo path eg: nebulae-pyxis/emi
 #   github repo branch eg: master
 gitPublishPackageLockChanges(){    
     echo "gitPublishPackageLockChanges"    

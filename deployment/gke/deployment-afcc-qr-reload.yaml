@@ -13,7 +13,7 @@ spec:
         app: afcc-qr-reload
     spec:      
       containers:
-      - image: nebulaetpm/afcc-qr-reload.backend.afcc-qr-reload:0.0.1
+      - image: nebulaepyxis/afcc-qr-reload.backend.afcc-qr-reload:0.0.1
         name: afcc-qr-reload
         volumeMounts:
         - name: google-application-credentials
