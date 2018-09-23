@@ -11,6 +11,7 @@ import { AngularBleModule } from '@nebulae/angular-ble';
 import { ManualDialogValueComponent } from './manual-value-dialog/manual-dialog-value.component';
 import { ConfirmReloadDialogComponent } from './confirm-reload-dialog/confirm-reload-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   imports: [
     SharedModule,
     RouterModule.forChild(routes),
+    ShareButtonsModule.forRoot(),
     HttpClientModule,
     AngularBleModule.forRoot({
       enableTracing: false

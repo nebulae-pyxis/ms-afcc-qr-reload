@@ -54,6 +54,7 @@
         <qrcode *ngIf="qrReloadObj" [qrdata]="qrReloadObj" [size]="256" [level]="'H'"></qrcode>
         <button style="margin-top: 30px" (click)="finishReloadAction()" mat-raised-button color="accent">Finalizar</button>
       </div>
+      <share-buttons *ngIf="reloadingCard" [url]="shareUrl"></share-buttons>
       
 
     </div>

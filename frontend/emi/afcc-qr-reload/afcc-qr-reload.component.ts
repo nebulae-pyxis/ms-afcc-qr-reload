@@ -20,6 +20,7 @@ export class AfccQrReloadComponent implements OnInit, OnDestroy {
   reloadingCard = false;
   cardId: String;
   qrReloadObj: any;
+  shareUrl
 
   constructor(private afccQrReloadervice: AfccQrReloadService,
     private dialog: MatDialog) {    
@@ -56,6 +57,7 @@ export class AfccQrReloadComponent implements OnInit, OnDestroy {
     .subscribe(result => {
       this.reloadingCard = true;
       this.qrReloadObj = JSON.stringify(result);
+      this.shareUrl = 'http://10.20.10.102:4400/qr/'+this.qrReloadObj;
       console.log("llega resultado de api: ", result)
     })
     
