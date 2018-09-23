@@ -34,7 +34,7 @@ module.exports = {
                         const cardId = data.cardId;
                         const id = (Math.floor(Math.random() * (9000 - 0)) + 0);
                         return superagent
-                            .post('websam.svc.cluster.local:8000/recharge/' + id)
+                            .post('http://websam.default.svc.cluster.local:8000/recharge/' + id)
                             .send({ "id":  id, "timestamp": timestamp, 
                             "tagid": parseInt(cardId), "value": args.value })
                             .set('accept', 'json')
