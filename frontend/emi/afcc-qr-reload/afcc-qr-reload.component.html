@@ -29,7 +29,7 @@
           <mat-icon style="width: 60px; font-size: 50px">credit_card</mat-icon>
           <div fxLayout="column" fxLayout.gt-sm="column">
             <mat-form-field>
-              <input matInput placeholder="Numero tarjeta"  [disabled]="reloadingCard" [(ngModel)]="cardId">
+              <input type="number" matInput placeholder="Numero tarjeta"  [disabled]="reloadingCard" [(ngModel)]="cardId">
             </mat-form-field>
           </div>
       </div>

@@ -12,6 +12,7 @@ import { ManualDialogValueComponent } from './manual-value-dialog/manual-dialog-
 import { ConfirmReloadDialogComponent } from './confirm-reload-dialog/confirm-reload-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareButtonsModule } from '@ngx-share/buttons';
+import { NumberOnlyDirective } from './tools/number-only-directive';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
   declarations: [
     AfccQrReloadComponent,
     ManualDialogValueComponent,
-    ConfirmReloadDialogComponent
+    ConfirmReloadDialogComponent,
+    NumberOnlyDirective
   ],
   entryComponents: [
     ManualDialogValueComponent,

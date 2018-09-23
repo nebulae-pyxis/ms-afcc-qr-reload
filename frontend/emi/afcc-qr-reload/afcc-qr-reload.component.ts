@@ -17,6 +17,7 @@ import { ConfirmReloadDialogComponent } from './confirm-reload-dialog/confirm-re
 })
 export class AfccQrReloadComponent implements OnInit, OnDestroy {
   
+  
   reloadingCard = false;
   cardId: String;
   qrReloadObj: any;
@@ -57,7 +58,7 @@ export class AfccQrReloadComponent implements OnInit, OnDestroy {
     .subscribe(result => {
       this.reloadingCard = true;
       this.qrReloadObj = JSON.stringify(result);
-      this.shareUrl = 'http://10.20.10.102:4400/qr/'+this.qrReloadObj;
+      this.shareUrl = 'https://share-qr.firebaseapp.com/qr/'+this.qrReloadObj.replace(/['"]+/g, '');
       console.log("llega resultado de api: ", result)
     })
     
