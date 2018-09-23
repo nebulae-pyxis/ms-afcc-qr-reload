@@ -27,7 +27,7 @@
                 "loadChildren": "./main/content/afcc-qr-reload/afcc-qr-reload.module#AfccQrReloadModule",
                 "priority": 1000,
                 "roles" : ["y4pt"],
-                "default" : false
+                "default" : true
             }            
         ],
         "preBuildCommands": [
