@@ -26,7 +26,7 @@
                 "path": "afcc-qr-reload",
                 "loadChildren": "./main/content/afcc-qr-reload/afcc-qr-reload.module#AfccQrReloadModule",
                 "priority": 1000,
-                "roles" : ["pos"],
+                "roles" : ["y4pt"],
                 "default" : false
             }            
         ],
