@@ -35,7 +35,7 @@
             "npm install @types/web-bluetooth",
             "npm install aes-js",
             "npm install @nebulae/angular-ble@1.0.2",
-            "npm install -S @ngx-share/core@5.3.1",
+            "npm i -S @ngx-share/core @ngx-share/button @ngx-share/buttons",
             "npm install -S @fortawesome/fontawesome-svg-core @fortawesome/angular-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons"
         ],
         "environmentVars": {

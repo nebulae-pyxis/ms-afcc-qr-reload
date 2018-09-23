@@ -35,8 +35,8 @@ const routes: Routes = [
   declarations: [
     AfccQrReloadComponent,
     ManualDialogValueComponent,
-    ConfirmReloadDialogComponent,
-  ],
+    ConfirmReloadDialogComponent
+    ],
   entryComponents: [
     ManualDialogValueComponent,
     ConfirmReloadDialogComponent
