@@ -191,10 +191,10 @@ jobs:
             command: |
               (ls ~/nebulae/api/DOCKERHUB_GENERATED_IMAGE_DIGEST && echo docker image DIGEST to set $(< ~/nebulae/api/DOCKERHUB_GENERATED_IMAGE_DIGEST) ) || echo api not found
               (ls ~/nebulae/api/DOCKERHUB_GENERATED_IMAGE_DIGEST && kubectl set image deployment/api-gateway api-gateway=$(< ~/nebulae/api/DOCKERHUB_GENERATED_IMAGE_DIGEST) ) || echo api not found
-        - run:
-            name: Deploy BackEnds 
-            command: |
-              kubectl apply -f ~/nebulae/repo/deployment/gke/              
+        # - run:
+        #     name: Deploy BackEnds 
+        #     command: |
+        #       kubectl apply -f ~/nebulae/repo/deployment/gke/              
 
 
 
@@ -212,18 +212,18 @@ workflows:
           context: PYXIS
           requires:
             - prepare
-      - build-mbinit:
-          context: PYXIS
-          requires:
-            - prepare
-      - build-backend:
-          context: PYXIS
-          requires:
-            - prepare
-            - build-mbinit      
+      # - build-mbinit:
+      #     context: PYXIS
+      #     requires:
+      #       - prepare
+      # - build-backend:
+      #     context: PYXIS
+      #     requires:
+      #       - prepare
+      #       - build-mbinit      
       - deploy-prod:
           context: PYXIS
           requires:
             - build-frontend
             - build-api
-            - build-backend
+            # - build-backend

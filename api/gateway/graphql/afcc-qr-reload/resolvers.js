@@ -110,4 +110,3 @@ eventDescriptors.forEach(descriptor => {
         );
 });
 
-
