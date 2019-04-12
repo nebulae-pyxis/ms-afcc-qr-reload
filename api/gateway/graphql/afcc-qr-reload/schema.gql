@@ -1,5 +1,5 @@
 
-type SamData{
+type SamData {
   id: ID
   timestamp: BigInt
   value: Int
