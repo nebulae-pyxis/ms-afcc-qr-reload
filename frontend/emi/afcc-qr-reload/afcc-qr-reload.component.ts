@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material';
 import { ManualDialogValueComponent } from './manual-value-dialog/manual-dialog-value.component';
 import { ConfirmReloadDialogComponent } from './confirm-reload-dialog/confirm-reload-dialog.component';
 import { ShareButtons } from '@ngx-share/core';
-
+ 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'afcc-qr-reload',
