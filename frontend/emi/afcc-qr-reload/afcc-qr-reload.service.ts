@@ -27,7 +27,7 @@ export class AfccQrReloadService {
         query: getSamData,
         fetchPolicy: "network-only",
         variables: {
-          cardId,
+          cardId: cardId+"",
           value
         },
       })
