@@ -153,7 +153,7 @@ jobs:
             mkdir ~/nebulae/backend
             cp ~/nebulae/go/mbinit ~/nebulae/repo/backend/afcc-qr-reload/
             export DOCKERHUB_IMAGE=afcc-qr-reload.backend.afcc-qr-reload
-            export DOCKERHUB_TAG=0.0.1
+            export DOCKERHUB_TAG=0.0.2
             gitChanged backend/afcc-qr-reload || docker build  -t $DOCKERHUB_NAMESPACE/$DOCKERHUB_IMAGE:$DOCKERHUB_TAG -t $DOCKERHUB_NAMESPACE/$DOCKERHUB_IMAGE:latest ~/nebulae/repo/backend/afcc-qr-reload/
             gitChanged backend/afcc-qr-reload || docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
             gitChanged backend/afcc-qr-reload || docker push $DOCKERHUB_NAMESPACE/$DOCKERHUB_IMAGE:$DOCKERHUB_TAG
